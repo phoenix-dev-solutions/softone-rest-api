@@ -1,0 +1,32 @@
+{
+  "name": "@phoenixdev/softone-rest-api",
+  "version": "1.0.0",
+  "description": "A Node.js wrapper for the Softone REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phoenix-dev-solutions/softone-rest-api.git"
+  },
+  "keywords": [
+    "rest-api",
+    "Softone",
+    "Soft1"
+  ],
+  "author": "Phoenix Development GP",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phoenix-dev-solutions/softone-rest-api/issues"
+  },
+  "homepage": "https://github.com/phoenix-dev-solutions/softone-rest-api#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "iconv-lite": "^0.6.3"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
