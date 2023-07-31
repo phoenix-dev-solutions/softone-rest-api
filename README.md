@@ -5,11 +5,11 @@ A Node.js client for the Softone REST API. Easily interact with the Softone REST
 ## Installation
 
 ```
-npm install softone-rest-api
+npm i @phoenixdev/softone-rest-api
 ```
 
 ```
-yarn add softone-rest-api
+yarn add @phoenixdev/softone-rest-api
 ```
 
 ## Getting started
@@ -24,7 +24,7 @@ Soft1 Web Services reference <https://softone.gr/ws/>.
 Setup for the REST API integration :
 
 ```js
-var SoftoneRestApi = require('softone-rest-api');
+const SoftoneRestApi = require('@phoenixdev/softone-rest-api');
 
 const softone = new SoftoneRestApi({
   url: 'xxxx',
