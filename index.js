@@ -133,8 +133,6 @@ class SoftoneRestApi {
   /**
    * Get URL
    *
-   * @param  {String} endpoint
-   * @param  {Object} params
    *
    * @return {String}
    */
@@ -150,7 +148,6 @@ class SoftoneRestApi {
    * Do requests
    *
    * @param  {String} method
-   * @param  {String} endpoint
    * @param  {Object} data
    * @param  {Object} params
    *
@@ -270,7 +267,7 @@ class SoftoneRestApi {
   }
 
   /**
-   * loginAuthenticateENTICATE request
+   * loginAuthenticate request
    *
    * @param  {Object} data
    * @param  {Object} params
@@ -278,29 +275,21 @@ class SoftoneRestApi {
    * @return {Object}
    */
 
-  async loginAuthenticateenticate(data, params = {}) {
+  async loginAuthenticate(data, params = {}) {
     if (!this.company) {
-      throw new OptionsException(
-        'Company is required for loginAuthenticateenticate'
-      );
+      throw new OptionsException('Company is required for loginAuthenticate');
     }
 
     if (!this.branch) {
-      throw new OptionsException(
-        'Branch is required for loginAuthenticateenticate'
-      );
+      throw new OptionsException('Branch is required for loginAuthenticate');
     }
 
     if (!this.module) {
-      throw new OptionsException(
-        'Module is required for loginAuthenticateenticate'
-      );
+      throw new OptionsException('Module is required for loginAuthenticate');
     }
 
     if (!this.refId) {
-      throw new OptionsException(
-        'Refid is required for loginAuthenticateenticate'
-      );
+      throw new OptionsException('Refid is required for loginAuthenticate');
     }
 
     data = {
@@ -311,9 +300,9 @@ class SoftoneRestApi {
       COMPANY: this.company,
       BRANCH: this.branch,
       MODULE: this.module,
-      REFID: this.refid,
-      ...(this.LOGINDATE && { logindate: this.logindate }),
-      ...(this.TIMEZONEOFFSET && { timezoneoffset: this.timezoneoffset }),
+      REFID: this.refId,
+      ...(this.logindate && { logindate: this.logindate }),
+      ...(this.timezoneoffset && { timezoneoffset: this.timezoneoffset }),
     };
 
     return this.parseSoftOneResponse(await this._request('post', data, params));
@@ -326,15 +315,15 @@ class SoftoneRestApi {
 
   async setAutoLogin() {
     if (this.company && this.branch && this.module && this.refId) {
-      const login = await this.loginAuthenticateenticate();
+      const login = await this.loginAuthenticate();
 
-      if ((login.status == 200) & login.data.success) {
+      if (login.status == 200 && login.data.success) {
         this.clientID = login.data.clientID;
       }
     } else {
       const login = await this.login();
 
-      if ((login.status == 200) & login.data.success) {
+      if (login.status == 200 && login.data.success) {
         const authData = {
           clientID: login.data.clientID,
           COMPANY: this.company || login.data.objs[this.loginObjs].COMPANY,
