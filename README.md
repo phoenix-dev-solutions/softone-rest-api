@@ -61,22 +61,24 @@ const softone = new SoftoneRestApi({
 ### GET
 
 - `.get( data)`
-- `.get( data, params)`
+- `.get( data, params, customEndPoint)`
 
-| Params   | Type     | Description                                                 |
-| -------- | -------- | ----------------------------------------------------------- |
-| `data`   | `Object` | JS object to be converted into JSON and sent in the request |
-| `params` | `Object` | Query strings params                                        |
+| Params           | Type     | Description                                                 |
+| ---------------- | -------- | ----------------------------------------------------------- |
+| `data`           | `Object` | JS object to be converted into JSON and sent in the request |
+| `params`         | `Object` | Query strings params                                        |
+| `customEndPoint` | `String` | Softone Custom endpoint                                     |
 
 ### POST
 
 - `.post( data)`
-- `.post( data, params)`
+- `.post( data, params, customEndPoint)`
 
-| Params   | Type     | Description                                                 |
-| -------- | -------- | ----------------------------------------------------------- |
-| `data`   | `Object` | JS object to be converted into JSON and sent in the request |
-| `params` | `Object` | Query strings params                                        |
+| Params           | Type     | Description                                                 |
+| ---------------- | -------- | ----------------------------------------------------------- |
+| `data`           | `Object` | JS object to be converted into JSON and sent in the request |
+| `params`         | `Object` | Query strings params                                        |
+| `customEndPoint` | `String` | Softone Custom endpoint                                     |
 
 ### LOGIN
 

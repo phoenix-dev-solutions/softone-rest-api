@@ -154,8 +154,8 @@ class SoftoneRestApi {
    * @return {Object}
    */
 
-  _request(method, data, params = {}) {
-    const url = this._getUrl();
+  _request(method, data, params = {}, customEndPoint = '') {
+    const url = this._getUrl() + customEndPoint;
 
     let options = {
       url: url,
@@ -181,11 +181,12 @@ class SoftoneRestApi {
    *
    * @param  {Object} data
    * @param  {Object} params
+   * @param  {String} customEndPoint
    *
    * @return {Object}
    */
 
-  get(data, params = {}) {
+  async get(data, params = {}, customEndPoint = '') {
     return this.parseSoftOneResponse(
       this._request(
         'get',
@@ -194,7 +195,8 @@ class SoftoneRestApi {
           ...(this.clientID && { clientID: this.clientID }),
           ...data,
         },
-        params
+        params,
+        customEndPoint
       )
     );
   }
@@ -204,11 +206,12 @@ class SoftoneRestApi {
    *
    * @param  {Object} data
    * @param  {Object} params
+   * @param  {String} customEndPoint
    *
    * @return {Object}
    */
 
-  async post(data, params = {}) {
+  async post(data, params = {}, customEndPoint = '') {
     return this.parseSoftOneResponse(
       await this._request(
         'post',
@@ -217,7 +220,8 @@ class SoftoneRestApi {
           ...(this.clientID && { clientID: this.clientID }),
           ...data,
         },
-        params
+        params,
+        customEndPoint
       )
     );
   }
